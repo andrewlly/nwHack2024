@@ -28,7 +28,6 @@ public class DashboardController {
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         String username = userDetails.getUsername();
         List<DisplayPlant> plantsByUserName = userPlantService.getPlantsByUserName(userDetails.getUsername());
-
         System.out.println(username);
         return null;
     }

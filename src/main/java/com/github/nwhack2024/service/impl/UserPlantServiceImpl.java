@@ -47,7 +47,7 @@ public class UserPlantServiceImpl extends ServiceImpl<UserPlantMapper, UserPlant
             ans.add(displayPlant);
         }
 
-        return null;
+        return ans;
     }
 }
 

@@ -26,7 +26,7 @@ public class Util {
             return 0;
         }
 
-        int progressPerDay = (int) (diffInDays/progress);
+        int progressPerDay = (int) (diffInDays/progress*100);
 
         if(progressPerDay>100) return 100;
         return progressPerDay;

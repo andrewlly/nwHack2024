@@ -3,11 +3,13 @@ package com.github.nwhack2024.domain;
 import com.github.nwhack2024.util.Util;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.ToString;
 
 import java.util.Date;
 
 @Data
 @AllArgsConstructor
+@ToString
 public class DisplayPlant {
 
     String name;
@@ -36,4 +38,6 @@ public class DisplayPlant {
         stageNumber = Util.getStage(stageName);
         stageMessage = "Stage:" + stageName;
     }
+
+
 }
