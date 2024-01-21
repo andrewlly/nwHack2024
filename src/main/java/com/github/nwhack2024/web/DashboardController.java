@@ -1,5 +1,6 @@
 package com.github.nwhack2024.web;
 
+import com.github.nwhack2024.domain.DisplayPlant;
 import com.github.nwhack2024.mapper.UserMapper;
 import com.github.nwhack2024.service.UserPlantService;
 import jakarta.annotation.Resource;
@@ -10,6 +11,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Map;
 
 
@@ -25,9 +27,9 @@ public class DashboardController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         String username = userDetails.getUsername();
-        userPlantService.getPlantsByUserName("");
-        System.out.println(username);
+        List<DisplayPlant> plantsByUserName = userPlantService.getPlantsByUserName(userDetails.getUsername());
 
+        System.out.println(username);
         return null;
     }
 }

@@ -8,30 +8,32 @@ import java.util.Date;
 
 @Data
 @AllArgsConstructor
-public class displayPlant {
+public class DisplayPlant {
 
     String name;
     String plantType;
     Integer progress;
     String condition;
     Date date;
+    Integer life;
     Integer stageNumber;
+    String stageMessage;
 
-    public displayPlant(String name, Date date, String condition){
+    public DisplayPlant(String name, Date date, String condition){
         this.name = name;
         this.date = date;
         this.condition = condition;
     }
 
-    public displayPlant(String s, Integer i){
+    public void setAttr(String s, Integer i){
         plantType = s;
+        life = Util.getLife(i,date);
         this.progress = Util.getProgress(i,date);
     }
 
-    public displayPlant(String stageName){
+
+    public void setStage(String stageName) {
         stageNumber = Util.getStage(stageName);
+        stageMessage = "Stage:" + stageName;
     }
-
-
-
 }

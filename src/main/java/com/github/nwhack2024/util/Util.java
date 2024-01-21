@@ -12,10 +12,15 @@ public class Util {
         return 0;
     }
 
-    public static int getProgress(int progress, Date date){
+    public static int getLife(int progress, Date date){
         Date currentDate = new Date();
         long diffInMilliseconds = currentDate.getTime() - date.getTime();
         long diffInDays = TimeUnit.DAYS.convert(diffInMilliseconds, TimeUnit.MILLISECONDS);
+        return (int) diffInDays;
+    }
+    public static int getProgress(int progress, Date date){
+
+        long diffInDays = getLife(progress,date);
 
         if (diffInDays == 0) {
             return 0;
