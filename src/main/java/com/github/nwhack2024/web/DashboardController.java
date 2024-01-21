@@ -19,12 +19,12 @@ public class DashboardController {
     UserPlantService userPlantService;
 
 
-    @GetMapping()
+    @GetMapping("/dashboard")
     public ResponseEntity<Map<String, Object>> getDashBoardInfo() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         String username = userDetails.getUsername();
-//        userPlantService.getMap();
+        System.out.println(username);
 
         return null;
     }
