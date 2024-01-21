@@ -1,9 +1,6 @@
 package com.github.nwhack2024.web;
 
-
-import com.github.nwhack2024.domain.entity.SysUserRole;
 import com.github.nwhack2024.domain.entity.User;
-import com.github.nwhack2024.mapper.SysUserRoleMapper;
 import com.github.nwhack2024.service.UserService;
 import com.github.nwhack2024.util.response.ResponseHandler;
 import jakarta.annotation.Resource;
@@ -16,11 +13,8 @@ import java.util.Map;
 @RestController
 public class UserController {
 
-
     @Resource
     UserService userService;
-
-
 
 
     @PostMapping ("/auth/create")
