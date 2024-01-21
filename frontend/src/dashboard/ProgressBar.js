@@ -1,5 +1,6 @@
-import React from 'react';
-import './Dashboard.css';
+import React from "react";
+import "./Dashboard.css";
+import ProgressBar from "../assets/progressbar.svg";
 
 const ProgressComponent = () => {
   return (
@@ -8,7 +9,9 @@ const ProgressComponent = () => {
         <p className="progress-stage">Stage 2</p>
         <p className="progress-percentage">33%</p>
       </div>
-      <div className="progress-bar"></div>
+      <div className="progress-bar">
+        <img alt="ProgressBar" className="ProgressBar" src={ProgressBar} />
+      </div>
     </div>
   );
 };

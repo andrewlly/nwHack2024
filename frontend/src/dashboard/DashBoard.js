@@ -6,6 +6,11 @@ import Plant from './Plant';
 import NewPlant from './NewPlant';
 import { Modal, Box } from '@mui/material';
 import Recommendation from './RecoModal';
+import logo from "../assets/logo.svg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHome } from "@fortawesome/free-solid-svg-icons";
+import { faUsers } from "@fortawesome/free-solid-svg-icons";
+import bg from "../assets/aloe.svg";
 import { useLocation } from 'react-router-dom';
 
 
@@ -20,11 +25,15 @@ const Dashboard = () => {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: 600,
-    height: 350,
+    height: 260,
     bgcolor: '#F8F5EC',
-    border: '2px solid #000',
+    border: '2px solid #0A3C5',
     boxShadow: '0.25rem 0.25rem #0A3C5',
+    borderRadius: '20px',
     p: 4,
+    textAlign: 'left', // Add this line for left justification
+    alignItems: 'flex-start', // Align items to the start (top) of the container
+
   };
 
   const [newPlantOpen, setNewPlantOpen] = useState(false);
@@ -50,6 +59,24 @@ const Dashboard = () => {
     setRecommendedOpen(false);
   }
 
+  return (
+    <div className="dashboard-container">
+      <Modal open={newPlantOpen || recommendedOpen}>
+      <Box sx={modalStyle}>
+      <div className="plant-count-badge" onClick={() => handleExit()}>X</div>
+        {newPlantOpen && <NewPlant plantType={modalPlant}/>}
+        {recommendedOpen && <Recommendation openNewPlant={openNewPlant}/>}
+      </Box>
+      </Modal>
+      <div className="sidebar">
+        <img alt="logo" src={logo} />
+        <p style={{ fontSize: "30px" }}>
+          <FontAwesomeIcon icon={faHome} />
+        </p>
+        <p style={{ fontSize: "30px" }}>
+          <FontAwesomeIcon icon={faUsers} />
+        </p>
+      </div>
   const handleToken = () => {
     getData();
   }
@@ -89,6 +116,18 @@ const Dashboard = () => {
           <p>home</p>
           <p>community</p>
         </div>
+        <h2 className="greeting">Aloe there, <br></br>Jane!</h2>
+        <div className="content-box">
+          <img alt="logo" className="aloe" src={bg} />
+        </div>
+        <div className="taskSection">
+          <h3 style={{ marginTop: "-120px" }} className="tasks">
+            Today's Tasks:
+          </h3>
+          <Task className="task" />
+          <Task className="task" />
+          <Task className="task" />
+          <h3 className="tasks">Tomorrow's Tasks:</h3>
 
         <div className="main-content">
           <div className="header">
@@ -103,6 +142,7 @@ const Dashboard = () => {
           <Task className="task" />
           <Task className="task" />
         </div>
+      </div>
 
         <div className="plants-container">
           <Profile className="profile" />
@@ -112,6 +152,8 @@ const Dashboard = () => {
           </div>
           <Plant className="plant" />
         </div>
+        <Plant className="plant" />   
+        <Plant className="plant" />
       </div>
   );
 };

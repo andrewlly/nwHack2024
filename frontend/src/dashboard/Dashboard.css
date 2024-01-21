@@ -1,288 +1,376 @@
 /* Dashboard.css */
 .taskbar {
-    border-radius: 8px;
-    width: 100%;
-    height: 7vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 1vh;
-    margin-bottom: 1vh;
+  border-radius: 8px;
+  width: 100%;
+  height: 7vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
 }
 
 /* Container styles */
 .dashboard-container {
-    background-color: #F8F5EC;
-    display: flex;
-    flex-direction: row;
-  }
-  
-  /* Sidebar styles */
-  .sidebar {
-    position: sticky;
-    width: 10vw;
-    height: 100vh;
-    background-color: #ABE0F7;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding-top: 5vh;
-  }
-  
-  .sidebar-logo {
-    width: 10vh;
-    height: 10vh;
-    background-color: #8EC6DD;
-    border-radius: 100%;
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 10px;
-  }
-  
-  /* Main content styles */
-  .main-content {
-    width: 50vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 5vh;
-  }
-  
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
-    width: 100%;
-  }
-  
-  .content-box {
-    height: 30vh;
-    width: 100%;
-    background-color: #B4E8D0;
-  }
-  
-  .greeting {
-    text-align: left;
-    width: 100%;
-  }
-  
-  /* Plants container styles */
-  .plants-container {
-    width: 30vw;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    padding: 5vh;
-    background-color: #B4E8D0;
-  }
-  
-  /* Plants header styles */
-  .plants-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
-    width: 100%;
-  }
-  
-  /* Add plant button styles */
-  .add-plant-button {
-    background-color: white;
-    width: 2vw;
-    height: 2vw;
-    border-radius: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: 24px;
-    box-shadow: 0.25rem 0.25rem #0A3C57;
-  }
+  background-color: #f8f5ec;
+  display: flex;
+  flex-direction: row;
+}
 
-  /* Plant container styles */
+.sidebar {
+  position: fixed;
+  width: 10vw;
+  height: 95vh;
+  background-color: #abe0f7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 5vh;
+  border-radius: 0px 30px 30px 0px;
+}
+
+.sidebar-logo {
+  width: 10vh;
+  height: 10vh;
+  background-color: #8ec6dd;
+  border-radius: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+
+/* Main content styles */
+.main-content {
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 5vh;
+  margin-left: 10vw;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  width: 90%;
+  z-index: 1;
+}
+
+.content-box {
+  height: 30vh;
+  width: 100%;
+  /* background-color: #B4E8D0; */
+}
+
+.aloe {
+  position: absolute;
+  top: 40px;
+  z-index: 0;
+}
+
+.greeting {
+  text-align: left;
+  padding-left: 120px;
+  width: 100%;
+  z-index: 2;
+  color: #0a3c57;
+  font-size: 40px;
+}
+
+.tasks {
+  text-align: left;
+  width: 100%;
+  z-index: 2;
+}
+
+.taskSection {
+  width: 92%;
+}
+/* Plants container styles */
+.plants-container {
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 5vh;
+  background-color: #b4e8d0;
+}
+
+/* Plants header styles */
+.plants-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+}
+
+/* Add plant button styles */
+.add-plant-button {
+  background-color: white;
+  width: 2vw;
+  height: 2vw;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 0.25rem 0.25rem #0a3c57;
+  cursor: pointer;
+}
+
+/* Plant container styles */
 .plant-container {
-    width: 100%;
-    background-color: white;
-    box-shadow: 0.5rem 0.5rem #0A3C57;
-    border-radius: 10px;
-    flex-direction: row;
-    display: flex;
-    align-items: flex-start;
-    position: relative;
-  }
-  
-  /* Plant count badge styles */
-  .plant-count-badge {
-    background-color: #ABE0F7;
-    width: 2vw;
-    height: 2vw;
-    border-radius: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: 24px;
-    border: 4px solid #0A3C57;
-    position: absolute;
-    right: 10px;
-    top: 10px;
-  }
-  
-  /* Plant circle styles */
-  .plant-circle {
-    background-color: #0A3C57;
-    width: 5vw;
-    height: 5vw;
-    border-radius: 100%;
-    margin: 1vw;
-  }
-  
-  /* Plant info container styles */
-  .plant-info-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding-right: 2vw;
-  }
-  
-  /* Plant name styles */
-  .plant-name {
-    margin: 0;
-    font-size: 24px;
-  }
-  
-  /* Plant type styles */
-  .plant-type {
-    font-size: 18px;
-  }
+  width: 100%;
+  background-color: white;
+  box-shadow: 0.5rem 0.5rem #0a3c57;
+  border-radius: 10px;
+  border: 3px solid #0a3c57;
+  align-items: flex-start;
+  position: relative;
+  cursor: pointer;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+.plant-top {
+  flex-direction: row;
+  display: flex;
+  height: 110px;
+}
 
-  .progress-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  /* Progress header styles */
-  .progress-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
-    width: 100%;
-  }
+/* Plant count badge styles */
+.plant-count-badge {
+  font-weight: bold;
+  font-size: 14px !important;
+  background-color: #abe0f7;
+  width: 2vw;
+  height: 2vw;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 24px;
+  border: 4px solid #0a3c57;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
 
-  .progress-bar {
-    width: 100%;
-    background-color: #F8F5EC;
-    height: 2vh;
-  }
+.greenIcon {
+  color: #b4e8d0;
+  font-size: 30px;
+  padding-right: 10px;
+}
 
-  /* Profile container styles */
+/* Plant circle styles */
+.plant-circle {
+  width: 8vw;
+  height: 8vw;
+  border-radius: 100%;
+  margin: 0 1vw 0 1vw;
+}
+
+.plant-circle img {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+}
+
+/* Plant info container styles */
+.plant-info-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-right: 2vw;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+/* Plant name styles */
+.plant-name {
+  margin-top: 15px;
+  font-size: 24px;
+}
+
+/* Plant type styles */
+.plant-type {
+  font-size: 18px;
+}
+
+.progress-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.progress-stage {
+  margin-top: -15px;
+}
+.progress-percentage {
+  margin-top: -15px;
+}
+
+/* Progress header styles */
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+}
+
+.plant-open {
+  padding: 0 40px;
+}
+
+.progress-bar {
+  height: 4px;
+  margin-top: -10px;
+}
+
+/* Profile container styles */
 .profile-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-  
-  /* Profile image styles */
-  .profile-image {
-    background-color: #0A3C57;
-    width: 4vw;
-    height: 4vw;
-    border-radius: 100%;
-    margin: 1vw;
-  }
-  
-  /* Profile info container styles */
-  .profile-info-container {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  /* Profile name styles */
-  .profile-name {
-    margin: 0;
-    font-size: 24px;
-  }
-  
-  /* Profile description styles */
-  .profile-description {
-    margin: 0;
-  }
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* Profile image styles */
+.profile-image {
+  background-color: #0a3c57;
+  width: 4vw;
+  height: 4vw;
+  border-radius: 100%;
+  margin: 1vw;
+  color: white;
+  font-size: 30px;
+}
+
+.profile-image FontAwesomeIcon {
+  color: white;
+  font-size: 30px;
+  padding-left: 20px;
+}
+
+.iconUser {
+  font-size: 30px;
+  padding: 12px 0 0 15px;
+}
+/* Profile info container styles */
+.profile-info-container {
+  display: flex;
+  flex-direction: column;
+}
+ƒ
+/* Profile name styles */
+.profile-name {
+  margin: 0 !important;
+  font-size: 24px;
+}
+
+/* Profile description styles */
+.profile-description {
+  margin-top: -15px;
+}
 
 /* Task bar styles */
 .taskbar {
-    background-color: white;
-    border: 2px solid #92D3B5;
-  }
-  
-  /* Finished task styles */
-  .finished-task {
-    background-color: #E7E7E7;
-    border: 2px solid black;
-  }
-  
-  /* Task content container styles */
-  .task-content-container {
-    display: flex;
-    align-items: center;
-  }
-  
-  /* Task icon styles */
-  .task-icon {
-    background-color: #B4E8D0;
-    width: 5vh;
-    height: 5vh;
-  }
-  
-  /* Task message styles */
-  .task-message {
-    margin: 0;
-    margin-left: 10px;
-  }
+  background-color: white;
+  border: 2px solid #92d3b5;
+}
 
-  .health-status {
-    background-color: #B4E8D0;
-    border-radius: 10px;
-    width: fit-content;
-  }
+/* Finished task styles */
+.finished-task {
+  background-color: #e7e7e7;
+  border: 2px solid black;
+  color: #868686;
+}
+.space {
+  padding-right: 10px;
+}
 
-  .upgrade-button {
-    background-color: #B4E8D0;
-    border-radius: 10px;
-    justify-content: flex-start;
-    text-align: center;
-  }
+/* Task content container styles */
+.task-content-container {
+  display: flex;
+  align-items: center;
+}
 
-  .learn-more-button {
-    text-decoration: 'underline';
-    justify-content: flex-start;
-    text-align: center;
-  }
+/* Task icon styles */
+.task-icon {
+  width: 5vh;
+  height: 5vh;
+  padding-left: 10px;
+}
 
-  .plant-count-badge {
-    background-color: #ABE0F7;
-    width: 2vw;
-    height: 2vw;
-    border-radius: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: 24px;
-    border: 3px solid black;
-    position: absolute;
-    right: 10px;
-    top: 10px;
-  }
+/* Task message styles */
+.task-message {
+  margin: 0;
+  margin-left: 10px;
+}
 
-  .recommendation-container {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-  }
-  
+.health-status {
+  background-color: #b4e8d0;
+  border-radius: 20px;
+  width: fit-content;
+  padding: 2px 10px;
+  border: 2px solid #0a3c57;
+}
+
+.upgrade-button {
+  background-color: #b4e8d0;
+  border-radius: 10px;
+  justify-content: flex-start;
+  text-align: center;
+  padding: 8px 10px;
+  background: linear-gradient(95deg, #abe0f7 12.48%, #b4e8d0 82.73%);
+  font-weight: bold;
+}
+
+.task-checkbox {
+  width: 20px;
+  height: 20px;
+  margin-right: 20px;
+}
+
+.learn-more-button {
+  text-decoration: "underline";
+  justify-content: flex-start;
+  text-align: center;
+}
+
+.plant-count-badge {
+  background-color: #abe0f7;
+  width: 2vw;
+  height: 2vw;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 24px;
+  border: 3px solid black;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.recommendation-container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.newLabels {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
