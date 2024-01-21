@@ -10,14 +10,13 @@ import com.github.nwhack2024.mapper.UserMapper;
 import com.github.nwhack2024.service.PlantStagesService;
 import com.github.nwhack2024.service.UserPlantService;
 import com.github.nwhack2024.service.UserTasksService;
+import com.github.nwhack2024.util.response.ResponseHandler;
 import jakarta.annotation.Resource;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.Date;
@@ -106,5 +105,21 @@ public class DashboardController {
             return new ResponseResult<>(402, "Info Not exist");
         }
         return new ResponseResult<>(200, "checkSuccess");
+    }
+
+    @PostMapping("/dashboard/create")
+    @ResponseBody
+    private ResponseEntity<Map<String, Object>> savePlant(@RequestBody UserPlant userPlant) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        String username = userDetails.getUsername();
+        User user = userMapper.selectByMap(Map.of("email", username)).get(0);
+        userPlant.setUserId(user.getUid());
+        try {
+            userPlantService.save(userPlant);
+        } catch (Exception e) {
+            return ResponseHandler.handleErrResponse(e);
+        }
+        return ResponseEntity.noContent().build();
     }
 }

@@ -88,7 +88,7 @@ const Dashboard = () => {
           <div className="plant-count-badge" onClick={() => handleExit()}>
             X
           </div>
-          {newPlantOpen && <NewPlant plantType={modalPlant} />}
+          {newPlantOpen && <NewPlant plantType={modalPlant} token={token} exitWindow={handleExit}/>}
           {recommendedOpen && <Recommendation openNewPlant={openNewPlant} />}
         </Box>
       </Modal>

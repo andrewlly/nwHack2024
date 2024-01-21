@@ -3,7 +3,7 @@ import Tomato from "./../assets/tomato.svg";
 import Basil from "./../assets/basil.svg";
 import "./Dashboard.css";
 
-const NewPlant = ({ plantType, token }) => {
+const NewPlant = ({ plantType, token, exitWindow }) => {
   const [plantName, setPlantName] = useState("");
   const [selectedPlant, setSelectedPlant] = useState(plantType || "");
   console.log(selectedPlant);
@@ -24,8 +24,59 @@ const NewPlant = ({ plantType, token }) => {
   };
 
   const handleAdd = () => {
-    // tryAdd();
+    tryAdd();
   };
+
+    function formatDate(date) {
+        const year = date.getFullYear();
+        const month = (date.getMonth() + 1).toString().padStart(2, '0');
+        const day = date.getDate().toString().padStart(2, '0');
+        return `${year}-${month}-${day}`;
+    }
+
+    const today = new Date();
+
+    const PlantTypesID = {
+        "Cherry Tomato": 1,
+        "Basil": 2
+    };
+
+    const PlantTypesStage = {
+        "Cherry Tomato": 11,
+        "Basil": 21
+    };
+
+
+
+    const tryAdd = () => {
+        console.log(selectedPlant);
+        console.log(PlantTypesID[selectedPlant]);
+        console.log(PlantTypesStage[selectedPlant]);
+        console.log(plantName);
+        console.log(formatDate(today));
+        fetch('http://localhost:8080/dashboard/create', {
+        method: "POST",
+        body: JSON.stringify({
+            plantId: PlantTypesID[selectedPlant],
+            stageId: PlantTypesStage[selectedPlant],
+            userPlantName: plantName,
+            datePlanted: formatDate(today),
+            currentCondition: "Healthy"
+        }),
+        headers: {
+            Authorization : token,
+            "Content-type": "application/json; charset=UTF-8",
+            Origin: "http://localhost:3000/"
+        },
+        credentials: "include"
+    })
+        .then(json => {
+            console.log(json)
+            exitWindow();
+        })
+        .catch(error => console.error(error));
+}
+
 
   return (
     <>
@@ -78,7 +129,7 @@ const NewPlant = ({ plantType, token }) => {
             <option value="Carrots">Carrots</option>
             <option value="Peas">Peas</option>
           </select>
-          <button style={{ width: "100%" }} className="submit">
+          <button onClick={handleAdd} style={{ width: "100%" }} className="submit">
             Add Plant
           </button>
         </div>
