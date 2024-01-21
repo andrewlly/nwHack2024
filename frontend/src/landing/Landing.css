@@ -1,0 +1,14 @@
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50vw;
+    height: 90vh;
+    margin: auto;
+}
+
+.navbar-item {
+    margin-left: 15px;
+    margin-right: 15px;
+}
