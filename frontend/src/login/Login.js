@@ -60,11 +60,7 @@ const Login = () => {
                     <br />
                     <input style={{ width: '100%' }} type="password" placeholder="Password" value={password} onChange={handlePasswordChange} />
                     <br />
-<<<<<<< HEAD
-                    <button onClick={handleClicked} style={{ width: '100%'}} type="submit">Login</button>
-=======
                     <Link to="/dashboard"><button style={{ width: '100%'}} type="submit">Login</button></Link>
->>>>>>> refs/remotes/origin/main
                 </form>
             </div>
         </div>

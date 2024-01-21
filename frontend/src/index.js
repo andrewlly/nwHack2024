@@ -6,12 +6,14 @@ import Quiz from './quiz/Quiz'
 import Login from './login/Login'
 import Navbar from './landing/NavBar';
 import reportWebVitals from './reportWebVitals';
+import { Amplify } from 'aws-amplify';
+import amplifyconfig from './amplifyconfiguration.json';
+import App from './App';
+Amplify.configure(amplifyconfig);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* <Landing /> */}
-    {/* <Quiz /> */}
-    <Login/>
+    <App/>
   </React.StrictMode>
 );
