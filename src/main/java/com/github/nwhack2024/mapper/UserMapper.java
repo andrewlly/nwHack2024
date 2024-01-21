@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Select;
 import java.util.List;
 
 public interface UserMapper extends BaseMapper<User> {
-    @Select("SELECT * FROM User WHERE is_deleted = 0 AND email = #{email}")
+    @Select("SELECT * FROM user WHERE is_deleted = 0 AND email = #{email}")
     User getByEmail(@Param("email") String email);
 }
 
