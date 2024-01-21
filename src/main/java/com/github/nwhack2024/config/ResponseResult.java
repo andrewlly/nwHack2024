@@ -1,4 +1,4 @@
-package com.github.nwhack2024.domain;
+package com.github.nwhack2024.config;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
