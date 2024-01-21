@@ -1,20 +1,28 @@
 import React from 'react';
-import './Login.css';
+import './CreateAccount.css';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-  const [login, setLogin] = useState('');
+  const [username, setUsername] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState(null);
   const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
 
 
+  const handleUsernameChange = (e) => {
+    setUsername(e.target.value);
+  };
 
+  const handlePhoneNumberChange = (e) => {
+    setPhoneNumber(e.target.value);
+  };
 
-  const handleLoginChange = (e) => {
-    setLogin(e.target.value);
+  const handleEmailChange = (e) => {
+    handleEmailChange(e.target.value);
   };
 
   const handlePasswordChange = (e) => {
@@ -31,7 +39,7 @@ const Login = () => {
 
   const tryLogin = () => {
     setIsLoading(true);
-    fetch('http://localhost:8080/auth/login', {
+    fetch('http://localhost:8080/auth/create', {
       method: "POST",
       body: JSON.stringify({
         email: login,
@@ -70,9 +78,13 @@ const Login = () => {
             <span style={{ fontSize: '20px' }}>BestBuds</span>
           </div>
           <div style={{ paddingTop: '20vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-            <h2>Welcome Back</h2>
+            <h2>Welcome!</h2>
             <form onSubmit={handleSubmit}>
-              <input style={{ width: '100%' }} type="text" placeholder="Username" value={login} onChange={handleLoginChange} />
+              <input style={{ width: '100%' }} type="text" placeholder="Username" value={username} onChange={handleUsernameChange} />
+              <br />
+              <input style={{ width: '100%' }} type="text" placeholder="Phone Number" value={phoneNumber} onChange={handlePhoneNumberChange} />
+              <br />
+              <input style={{ width: '100%' }} type="text" placeholder="Email" value={email} onChange={handleEmailChange} />
               <br />
               <input style={{ width: '100%' }} type="password" placeholder="Password" value={password} onChange={handlePasswordChange} />
               <br />

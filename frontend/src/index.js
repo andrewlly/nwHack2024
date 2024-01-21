@@ -5,13 +5,12 @@ import './index.css';
 import Quiz from './quiz/Quiz'
 import Login from './login/Login'
 import Navbar from './landing/NavBar';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* <Landing /> */}
-    {/* <Quiz /> */}
-    <Login/>
+    <App/>
   </React.StrictMode>
 );
