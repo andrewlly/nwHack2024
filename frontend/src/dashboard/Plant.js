@@ -8,7 +8,7 @@ import { faSeedling } from "@fortawesome/free-solid-svg-icons";
 import { faDroplet } from "@fortawesome/free-solid-svg-icons";
 import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 import { Modal, Box } from "@mui/material";
-import NewPlant from "./PlantInfo";
+import PlantInfo from "./PlantInfo";
 
 const Plant = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -50,7 +50,7 @@ const Plant = () => {
           <div className="plant-count-badge" onClick={() => handleExit()}>
             X
           </div>
-          {plantInfoOpen && <NewPlant plantType={modalPlant} />}
+          {plantInfoOpen && <PlantInfo plantType={modalPlant} />}
         </Box>
       </Modal>
       <div className="plant-top">
