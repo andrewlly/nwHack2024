@@ -8,7 +8,7 @@ const Landing = () => {
     <div>
     <Navbar />
     <div className='main-container'>
-        <h1 style={{fontSize: '48px'}}>BIG MESSAGE HERE!</h1>
+        <h1 style={{fontSize: '48px'}}>BIG MESSAGE HERE!!</h1>
         <Link to="/get-started">
         <button>GET STARTED</button>
       </Link>
