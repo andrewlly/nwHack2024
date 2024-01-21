@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://nwhacks-2024.c96aymqiewvm.us-west-2.rds.amazonaws.com:3306/nwhacks-2024
+    url: jdbc:mysql://nwhacks-2024.c96aymqiewvm.us-west-2.rds.amazonaws.com:3306/plant_care_db
     username: nwhacks_2024
     password: Nw#2024hacks
     type: com.zaxxer.hikari.HikariDataSource
