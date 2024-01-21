@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
+import java.util.Date;
 import lombok.Data;
 
 /**
@@ -41,6 +42,18 @@ public class UserTasks implements Serializable {
     /**
      * 
      */
+    @TableField(value = "creation_date")
+    private Date creationDate;
+
+    /**
+     * 
+     */
+    @TableField(value = "completed_date")
+    private Date completedDate;
+
+    /**
+     * 
+     */
     @TableField(value = "task_completed_notes")
     private String taskCompletedNotes;
 
@@ -69,6 +82,8 @@ public class UserTasks implements Serializable {
             && (this.getPlantCareTaskId() == null ? other.getPlantCareTaskId() == null : this.getPlantCareTaskId().equals(other.getPlantCareTaskId()))
             && (this.getUserPlantId() == null ? other.getUserPlantId() == null : this.getUserPlantId().equals(other.getUserPlantId()))
             && (this.getCompleted() == null ? other.getCompleted() == null : this.getCompleted().equals(other.getCompleted()))
+            && (this.getCreationDate() == null ? other.getCreationDate() == null : this.getCreationDate().equals(other.getCreationDate()))
+            && (this.getCompletedDate() == null ? other.getCompletedDate() == null : this.getCompletedDate().equals(other.getCompletedDate()))
             && (this.getTaskCompletedNotes() == null ? other.getTaskCompletedNotes() == null : this.getTaskCompletedNotes().equals(other.getTaskCompletedNotes()))
             && (this.getIsDeleted() == null ? other.getIsDeleted() == null : this.getIsDeleted().equals(other.getIsDeleted()));
     }
@@ -81,6 +96,8 @@ public class UserTasks implements Serializable {
         result = prime * result + ((getPlantCareTaskId() == null) ? 0 : getPlantCareTaskId().hashCode());
         result = prime * result + ((getUserPlantId() == null) ? 0 : getUserPlantId().hashCode());
         result = prime * result + ((getCompleted() == null) ? 0 : getCompleted().hashCode());
+        result = prime * result + ((getCreationDate() == null) ? 0 : getCreationDate().hashCode());
+        result = prime * result + ((getCompletedDate() == null) ? 0 : getCompletedDate().hashCode());
         result = prime * result + ((getTaskCompletedNotes() == null) ? 0 : getTaskCompletedNotes().hashCode());
         result = prime * result + ((getIsDeleted() == null) ? 0 : getIsDeleted().hashCode());
         return result;
@@ -96,6 +113,8 @@ public class UserTasks implements Serializable {
         sb.append(", plantCareTaskId=").append(plantCareTaskId);
         sb.append(", userPlantId=").append(userPlantId);
         sb.append(", completed=").append(completed);
+        sb.append(", creationDate=").append(creationDate);
+        sb.append(", completedDate=").append(completedDate);
         sb.append(", taskCompletedNotes=").append(taskCompletedNotes);
         sb.append(", isDeleted=").append(isDeleted);
         sb.append(", serialVersionUID=").append(serialVersionUID);

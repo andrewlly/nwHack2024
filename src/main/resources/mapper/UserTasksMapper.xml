@@ -9,12 +9,15 @@
             <result property="plantCareTaskId" column="plant_care_task_id" jdbcType="INTEGER"/>
             <result property="userPlantId" column="user_plant_id" jdbcType="INTEGER"/>
             <result property="completed" column="completed" jdbcType="INTEGER"/>
+            <result property="creationDate" column="creation_date" jdbcType="TIMESTAMP"/>
+            <result property="completedDate" column="completed_date" jdbcType="TIMESTAMP"/>
             <result property="taskCompletedNotes" column="task_completed_notes" jdbcType="VARCHAR"/>
             <result property="isDeleted" column="is_deleted" jdbcType="TINYINT"/>
     </resultMap>
 
     <sql id="Base_Column_List">
         user_tasks_id,plant_care_task_id,user_plant_id,
-        completed,task_completed_notes,is_deleted
+        completed,creation_date,completed_date,
+        task_completed_notes,is_deleted
     </sql>
 </mapper>

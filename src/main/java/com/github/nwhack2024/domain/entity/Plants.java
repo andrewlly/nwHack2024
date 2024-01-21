@@ -41,6 +41,12 @@ public class Plants implements Serializable {
     /**
      * 
      */
+    @TableField(value = "sun_level")
+    private String sunLevel;
+
+    /**
+     * 
+     */
     @TableField(value = "suitable_climate")
     private String suitableClimate;
 
@@ -87,6 +93,7 @@ public class Plants implements Serializable {
             && (this.getPlantName() == null ? other.getPlantName() == null : this.getPlantName().equals(other.getPlantName()))
             && (this.getPlantDescription() == null ? other.getPlantDescription() == null : this.getPlantDescription().equals(other.getPlantDescription()))
             && (this.getCareLevel() == null ? other.getCareLevel() == null : this.getCareLevel().equals(other.getCareLevel()))
+            && (this.getSunLevel() == null ? other.getSunLevel() == null : this.getSunLevel().equals(other.getSunLevel()))
             && (this.getSuitableClimate() == null ? other.getSuitableClimate() == null : this.getSuitableClimate().equals(other.getSuitableClimate()))
             && (this.getSuitableSeason() == null ? other.getSuitableSeason() == null : this.getSuitableSeason().equals(other.getSuitableSeason()))
             && (this.getHarvestTime() == null ? other.getHarvestTime() == null : this.getHarvestTime().equals(other.getHarvestTime()))
@@ -102,6 +109,7 @@ public class Plants implements Serializable {
         result = prime * result + ((getPlantName() == null) ? 0 : getPlantName().hashCode());
         result = prime * result + ((getPlantDescription() == null) ? 0 : getPlantDescription().hashCode());
         result = prime * result + ((getCareLevel() == null) ? 0 : getCareLevel().hashCode());
+        result = prime * result + ((getSunLevel() == null) ? 0 : getSunLevel().hashCode());
         result = prime * result + ((getSuitableClimate() == null) ? 0 : getSuitableClimate().hashCode());
         result = prime * result + ((getSuitableSeason() == null) ? 0 : getSuitableSeason().hashCode());
         result = prime * result + ((getHarvestTime() == null) ? 0 : getHarvestTime().hashCode());
@@ -120,6 +128,7 @@ public class Plants implements Serializable {
         sb.append(", plantName=").append(plantName);
         sb.append(", plantDescription=").append(plantDescription);
         sb.append(", careLevel=").append(careLevel);
+        sb.append(", sunLevel=").append(sunLevel);
         sb.append(", suitableClimate=").append(suitableClimate);
         sb.append(", suitableSeason=").append(suitableSeason);
         sb.append(", harvestTime=").append(harvestTime);
