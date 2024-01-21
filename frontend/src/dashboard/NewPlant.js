@@ -3,7 +3,7 @@ import Tomato from './../assets/tomato.svg'
 import Basil from './../assets/basil.svg'
 import "./Dashboard.css"
 
-const NewPlant = ({plantType}) => {
+const NewPlant = ({plantType, token}) => {
   const [plantName, setPlantName] = useState("");
   const [selectedPlant, setSelectedPlant] = useState(plantType);
   console.log(selectedPlant);
@@ -15,6 +15,11 @@ const NewPlant = ({plantType}) => {
   const handleDropdownChange = (e) => {
     setSelectedPlant(e.target.value);
   };
+
+  const handleAdd = () => {
+    // tryAdd();
+  }
+
 
   return (
     <>
@@ -46,9 +51,10 @@ const NewPlant = ({plantType}) => {
               <option value="Carrots">Carrots</option>
               <option value="Peas">Peas</option>
             </select>
+            <button onClick={handleAdd} style={{ width: '100%' }} className="submit" type="submit">Add</button>
           </div>
         </div>
-    </>
+      </>
   );
 };
 

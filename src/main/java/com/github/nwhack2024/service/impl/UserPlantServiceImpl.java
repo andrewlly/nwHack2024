@@ -5,18 +5,17 @@ import com.github.nwhack2024.domain.DisplayPlant;
 import com.github.nwhack2024.domain.PlantTask;
 import com.github.nwhack2024.domain.entity.*;
 import com.github.nwhack2024.mapper.*;
-import com.github.nwhack2024.service.PlantCareTaskService;
 import com.github.nwhack2024.service.UserPlantService;
 import jakarta.annotation.Resource;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-
-
-import static net.sf.jsqlparser.parser.feature.Feature.select;
 
 
 @Service
@@ -36,6 +35,15 @@ public class UserPlantServiceImpl extends ServiceImpl<UserPlantMapper, UserPlant
     PlantCareTaskMapper plantCareTaskMapper;
     @Resource
     UserTasksMapper userTasksMapper;
+
+    public boolean save(UserPlant userPlant){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        List<User> users = userMapper.selectByMap(Map.of("email", userDetails.getUsername()));
+        Long uid = users.get(0).getUid();
+        userPlant.setUserId(users.get(0).getUid());
+        return save(userPlant);
+    }
 
 
     @Override

@@ -31,6 +31,7 @@ const Login = () => {
   }
 
 
+
   const tryLogin = () => {
     fetch('http://localhost:8080/auth/login', {
       method: "POST",
@@ -45,12 +46,12 @@ const Login = () => {
       credentials: "include"
     }).then(response => response.json())
 
-      .then(json => {
-        console.log(json);
-        if(json.msg=="loginSuccess") {
-          navigate("/dashboard");
-        }
-      }).catch(error => console.error(error));
+        .then(json => {
+          console.log(json);
+          if(json.msg=="loginSuccess") {
+            navigate("/dashboard", { state: { token: json.data.token } });
+          }
+        }).catch(error => console.error(error));
   }
 
 
@@ -77,7 +78,6 @@ const Login = () => {
           </div>
         </div>
       </div>
-    </div>
   );
 
 };
