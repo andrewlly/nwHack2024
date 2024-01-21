@@ -22,10 +22,9 @@ const Plant = () => {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: 600,
+    width: 500,
+    height: 550,
     bgcolor: "#F8F5EC",
-    border: "2px solid #0A3C5",
-    boxShadow: "0.25rem 0.25rem #0A3C5",
     borderRadius: "20px",
     p: 4,
     textAlign: "left", // Add this line for left justification
@@ -67,29 +66,42 @@ const Plant = () => {
       </div>
 
       <div className="plant-open">
-      {isOpen && (
-        <div>
-          <div className="health-status">Healthy</div>
-          <p>
-          <span className = "greenIcon"><FontAwesomeIcon icon={faCake} /> </span>January 20th, 2024
-          </p>
-          <p>
-            <span className = "greenIcon"><FontAwesomeIcon icon={faSeedling} /> </span>Next stage is in< strong> 3 weeks!</strong>
-          </p>
-          <p>
-            <span className = "greenIcon"><FontAwesomeIcon icon={faDroplet} /> </span>Next watering is in <strong>3 days!</strong>
-          </p>
-          <div className="upgrade-button">Upgrade This Plant to Next Stage</div>
-          <p
-            className="learn-more-button"
-            style={{ textDecoration: "underline" }}
-          >
-            <span className = "space" onClick={() => setPlantInfoOpen(true)}><FontAwesomeIcon  icon={faCircleInfo} /> Learn more about this plant!</span>
-          </p>
-        </div>
-      )}
+        {isOpen && (
+          <div>
+            <div className="health-status">Healthy</div>
+            <p>
+              <span className="greenIcon">
+                <FontAwesomeIcon icon={faCake} />{" "}
+              </span>
+              January 20th, 2024
+            </p>
+            <p>
+              <span className="greenIcon">
+                <FontAwesomeIcon icon={faSeedling} />{" "}
+              </span>
+              Next stage is in<strong> 3 weeks!</strong>
+            </p>
+            <p>
+              <span className="greenIcon">
+                <FontAwesomeIcon icon={faDroplet} />{" "}
+              </span>
+              Next watering is in <strong>3 days!</strong>
+            </p>
+            <div className="upgrade-button">
+              Upgrade This Plant to Next Stage
+            </div>
+            <p
+              className="learn-more-button"
+              style={{ textDecoration: "underline" }}
+            >
+              <span className="space" onClick={() => setPlantInfoOpen(true)}>
+                <FontAwesomeIcon icon={faCircleInfo} /> Learn more about this
+                plant!
+              </span>
+            </p>
+          </div>
+        )}
       </div>
-      
     </div>
   );
 };
