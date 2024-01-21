@@ -1,0 +1,44 @@
+.login {
+  position: absolute;
+  bottom: 0;
+}
+
+.loginText {
+  position: absolute;
+  left: 100px;
+  top: -50px;
+}
+
+input {
+    background-color: #f8f5ec;
+    border: none;
+    border-bottom: 2px solid #B4E8D0; /* Adjust the border color and width as needed */
+    line-height: 30px;
+
+}
+
+input:focus {
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #B4E8D0; /* Adjust the border color and width as needed */
+
+}
+
+.loginField {
+    margin: 0 50px;
+}
+
+.submit {
+  /* Add any additional styles for the login button here */
+  border-radius: 20px;
+  padding: 10px 40px;
+  cursor: pointer;
+  background: linear-gradient(95deg, #ABE0F7 12.48%, #B4E8D0 82.73%);
+  border: none;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  color: white
+}

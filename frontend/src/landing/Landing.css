@@ -1,58 +1,139 @@
+body {
+  color: #0a3c57;
+  background-color: #f8f5ec;
+}
 .main-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 50vw;
-    height: 90vh;
-    margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  width: 50vw;
+  height: 90vh;
+  margin: auto;
+  color: #0a3c57;
 }
 
 .navbar-item {
-    margin-left: 15px;
-    margin-right: 15px;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 /* Navbar container styles */
 .navbar {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Logo container styles */
+.logo-container {
+  display: flex;
+  align-items: center;
+  padding: 40px;
+}
+
+/* Logo icon styles */
+.logo-icon {
+  background-color: #8ec6dd;
+  height: 6vh;
+  width: 6vh;
+  margin: 15px;
+  border-radius: 100%;
+}
+
+/* Logo text styles */
+.logo-text {
+  font-size: 20px;
+  padding-left: 30px;
+  font-weight: bolder;
+}
+
+/* Navbar items container styles */
+.navbar-items-container {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+/* Navbar item styles */
+.navbar-item {
+  margin-right: 20px;
+}
+
+/* Login button styles */
+.login-button {
+  /* Add any additional styles for the login button here */
+  border-radius: 20px;
+  padding: 10px 40px;
+  cursor: pointer;
+  background: linear-gradient(95deg, #ABE0F7 12.48%, #B4E8D0 82.73%);
+  border: none;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  color: white;
+}
+
+.getStarted {
+  background-color: white;
+  border-radius: 20px;
+  padding: 10px 40px;
+  cursor: pointer;
+  color: #0a3c57;
+  margin-top: 20px;
+  box-shadow: 3px 3px 0px #0a3c57; /* Adjust the shadow color, x-offset, y-offset, and spread radius */
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+}
+
+h1 {
+  font-size: 50px;
+  font-weight: bolder;
+  margin-bottom: 20px;
+  background: linear-gradient(93deg, #ABE0F7 12.13%, #B4E8D0 85.51%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-top: 100px;
+}
+
+.sun {
+  position: absolute;
+  left: 150px;
+}
+
+.cloud1 {
+  position: absolute;
+  /* width: 100px; /* Adjust the width of your cloud */
+  height: 60px; /* Adjust the height of your cloud */
+  animation: moveCloud 10s linear infinite; /* Adjust the animation duration as needed */
+}
+
+.cloud2 {
+  position: absolute;
+  top: 200px;
+  /* width: 100px; /* Adjust the width of your cloud */
+  height: 60px; /* Adjust the height of your cloud */
+  animation: moveCloud 20s linear infinite; /* Adjust the animation duration as needed */
+}
+
+.cloud3 {
+  position: absolute;
+  top: 400px;
+  /* width: 100px; /* Adjust the width of your cloud */
+  height: 60px; /* Adjust the height of your cloud */
+  animation: moveCloud 15s linear infinite; /* Adjust the animation duration as needed */
+}
+
+@keyframes moveCloud {
+  0% {
+    left: -30%; /* Initial position off-screen to the left */
   }
-  
-  /* Logo container styles */
-  .logo-container {
-    display: flex;
-    align-items: center;
+  100% {
+    left: 100%; /* Final position off-screen to the right */
   }
-  
-  /* Logo icon styles */
-  .logo-icon {
-    background-color: #8EC6DD;
-    height: 6vh;
-    width: 6vh;
-    margin: 15px;
-    border-radius: 100%;
-  }
-  
-  /* Logo text styles */
-  .logo-text {
-    font-size: 20px;
-  }
-  
-  /* Navbar items container styles */
-  .navbar-items-container {
-    display: flex;
-    align-items: center;
-    margin-right: 20px;
-  }
-  
-  /* Navbar item styles */
-  .navbar-item {
-    margin-right: 20px;
-  }
-  
-  /* Login button styles */
-  .login-button {
-    /* Add any additional styles for the login button here */
-  }
-  
+}
