@@ -9,73 +9,77 @@ import logo from "../assets/logo.svg";
 
 
 const Login = () => {
-    const [login, setLogin] = useState('');
-    const [password, setPassword] = useState('');
-    const navigate = useNavigate();
+  const [login, setLogin] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
 
-    const handleLoginChange = (e) => {
-        setLogin(e.target.value);
-    };
+  const handleLoginChange = (e) => {
+    setLogin(e.target.value);
+  };
 
-    const handlePasswordChange = (e) => {
-        setPassword(e.target.value);
-    };
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // API call and Authentication
-        navigate('/dashboard');
-    };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
 
-    const handleClicked = () => {
-        tryLogin()
-    }
-
-    const tryLogin = () => {
-        fetch('http://localhost:8080/auth/login', {
-            method: "POST",
-            body: JSON.stringify({
-                email: 'john.doe@example.com',
-                password: "1234"
-            }),
-            headers: {
-                "Content-type": "application/json; charset=UTF-8",
-                "Origin": "http://localhost:3000"
-            },
-            credentials: "include"
-        }).then(response => response.json())
-
-            .then(json => {
-                console.log(json);
-            }).catch(error => console.error(error));
-    }
+  const handleClicked = () => {
+    tryLogin();
+  }
 
 
-    return (
-        <div style={{display: 'flex', height: '100vh'}}>
-            <img alt="login" className="login" src={loginGraphic} />
-            <h1 className = "loginText">Long Thyme <br></br>No See</h1>
-            <div style={{width: '45vw', backgroundColor: '#0A3C57'}}></div>
-            <div style={{ display: 'flex', width: '50vw', flexDirection: 'column', alignItems: 'center' }}>
-                <div style={{ width: '80%', display: 'flex', flexDirection: 'column', textAlign: 'left'}}>
-                    <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: '40px'}}>
-                        <img alt="logo" src={logo} />
-                        <span style={{fontSize: '20px', paddingLeft: "40px", fontWeight: 'bold'}}>BestBuds</span>
-                    </div>
-                    <div className="loginField" style={{ paddingTop: '20vh', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
-                        <h2>Welcome Back</h2>
-                        <form onSubmit={handleSubmit}>
-                            <input style={{ width: '100%', marginBottom: "20px"}} type="text" placeholder="Username" value={login} onChange={handleLoginChange} />
-                            <br />
-                            <input style={{ width: '100%', marginBottom: "20px" }} type="password" placeholder="Password" value={password} onChange={handlePasswordChange} />
-                            <br />
-                            <button onClick={handleClicked} style={{ width: '100%'}} className = "submit" type="submit">Login</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
+  const tryLogin = () => {
+    fetch('http://localhost:8080/auth/login', {
+      method: "POST",
+      body: JSON.stringify({
+        email: login,
+        password: password
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+        "Origin": "http://localhost:3000"
+      },
+      credentials: "include"
+    }).then(response => response.json())
+
+      .then(json => {
+        console.log(json);
+        if(json.msg=="loginSuccess") {
+          navigate("/dashboard");
+        }
+      }).catch(error => console.error(error));
+  }
+
+
+  return (
+    <div style={{ display: 'flex', height: '100vh' }}>
+      <img alt="login" className="login" src={loginGraphic} />
+      <h1 className="loginText">Long Thyme <br></br>No See</h1>
+      <div style={{ width: '45vw', backgroundColor: '#0A3C57' }}></div>
+      <div style={{ display: 'flex', width: '50vw', flexDirection: 'column', alignItems: 'center' }}>
+        <div style={{ width: '80%', display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
+          <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: '40px' }}>
+            <img alt="logo" src={logo} />
+            <span style={{ fontSize: '20px', paddingLeft: "40px", fontWeight: 'bold' }}>BestBuds</span>
+          </div>
+          <div className="loginField" style={{ paddingTop: '20vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+            <h2>Welcome Back</h2>
+            <form onSubmit={handleSubmit}>
+              <input style={{ width: '100%', marginBottom: "20px" }} type="text" placeholder="Username" value={login} onChange={handleLoginChange} />
+              <br />
+              <input style={{ width: '100%', marginBottom: "20px" }} type="password" placeholder="Password" value={password} onChange={handlePasswordChange} />
+              <br />
+              <button onClick={handleClicked} style={{ width: '100%' }} className="submit" type="submit">Login</button>
+            </form>
+          </div>
         </div>
-    );
+      </div>
+    </div>
+  );
+
 };
 
 export default Login;

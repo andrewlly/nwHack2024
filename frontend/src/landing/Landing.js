@@ -15,7 +15,7 @@ const Landing = () => {
       <div className="main-container">
         <img alt="sun" className="sun" src={sun} />
         <h1 style={{ fontSize: "48px" }}>Grow Smarter, Not Harder</h1>
-        <Link to="/get-started">
+        <Link to="/create-account">
           <button className="getStarted">GET STARTED</button>
         </Link>
         <img alt="landing" className="landing" src={landing} />
