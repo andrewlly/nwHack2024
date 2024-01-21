@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.github.nwhack2024.mapper.SysRoleMapper">
+
+    <resultMap id="BaseResultMap" type="com.github.nwhack2024.domain.entities.SysRole">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="role_label" column="role_label" jdbcType="VARCHAR"/>
+            <result property="role_name" column="role_name" jdbcType="VARCHAR"/>
+            <result property="status" column="status" jdbcType="CHAR"/>
+            <result property="del_flag" column="del_flag" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,role_label,role_name,
+        status,del_flag
+    </sql>
+</mapper>

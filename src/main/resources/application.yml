@@ -1,16 +1,16 @@
 spring:
   datasource:
-#    driver-class-name: com.mysql.cj.jdbc.Driver
-#    url: jdbc:mysql://nwhacks-2024.c96aymqiewvm.us-west-2.rds.amazonaws.com:3306/nwhacks-2024
-#    username: nwhacks_2024
-#    password: Nw#2024hacks
-#    type: com.zaxxer.hikari.HikariDataSource
-
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/news_portal?characterEncoding=utf-8&userSSL=false
-    username: root
-    password: 85801754yY!
+    url: jdbc:mysql://nwhacks-2024.c96aymqiewvm.us-west-2.rds.amazonaws.com:3306/nwhacks-2024
+    username: nwhacks_2024
+    password: Nw#2024hacks
     type: com.zaxxer.hikari.HikariDataSource
+
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/news_portal?characterEncoding=utf-8&userSSL=false
+#    username: root
+#    password: 85801754yY!
+#    type: com.zaxxer.hikari.HikariDataSource
 
 
 

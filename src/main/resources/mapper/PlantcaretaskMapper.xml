@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.github.nwhack2024.mapper.PlantcaretaskMapper">
+
+    <resultMap id="BaseResultMap" type="com.github.nwhack2024.domain.entities.Plantcaretask">
+            <id property="plantCareTaskID" column="PlantCareTaskID" jdbcType="BIGINT"/>
+            <result property="plantCareTaskName" column="PlantCareTaskName" jdbcType="VARCHAR"/>
+            <result property="plantID" column="PlantID" jdbcType="INTEGER"/>
+            <result property="stageID" column="StageID" jdbcType="INTEGER"/>
+            <result property="dayOffset" column="DayOffset" jdbcType="INTEGER"/>
+            <result property="instructionType" column="InstructionType" jdbcType="INTEGER"/>
+            <result property="instructions" column="Instructions" jdbcType="VARCHAR"/>
+            <result property="is_deleted" column="is_deleted" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        PlantCareTaskID,PlantCareTaskName,PlantID,
+        StageID,DayOffset,InstructionType,
+        Instructions,is_deleted
+    </sql>
+</mapper>
