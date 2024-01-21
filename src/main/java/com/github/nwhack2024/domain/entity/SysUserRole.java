@@ -35,6 +35,11 @@ public class SysUserRole implements Serializable {
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 
+    public SysUserRole(Long uid, Long aLong) {
+        userId = uid;
+        roleId = aLong;
+    }
+
     @Override
     public boolean equals(Object that) {
         if (this == that) {

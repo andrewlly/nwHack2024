@@ -1,26 +1,26 @@
 package com.github.nwhack2024;
 
 
-import com.github.nwhack2024.mapper.PlantsMapper;
-import com.github.nwhack2024.mapper.UserMapper;
+import com.github.nwhack2024.domain.PlantTask;
+import com.github.nwhack2024.service.UserPlantService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.Map;
+import java.util.List;
 
 
 @SpringBootTest
 public class CrudTest {
 
     @Autowired (required = false)
-    UserMapper userMapper;
+    UserPlantService test;
 
 
     @Test
     void testMapper(){
-
-        System.out.println(userMapper.selectByMap(Map.of("email","john.doe@example.com")));
+        List<PlantTask> plantsByUserName = test.getPlantTask("john.doe@example.com");
+        plantsByUserName.forEach(System.out::println);
     }
 
 
