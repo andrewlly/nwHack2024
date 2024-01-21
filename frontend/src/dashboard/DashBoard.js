@@ -12,6 +12,7 @@ import { faHome } from "@fortawesome/free-solid-svg-icons";
 import { faUsers } from "@fortawesome/free-solid-svg-icons";
 import bg from "../assets/aloe.svg";
 import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   const location = useLocation();
@@ -96,13 +97,19 @@ const Dashboard = () => {
         </Box>
       </Modal>
       <div className="sidebar">
-        <img alt="logo" src={logo} />
-        <p style={{ fontSize: "30px" }}>
-          <FontAwesomeIcon icon={faHome} />
-        </p>
-        <p style={{ fontSize: "30px" }}>
-          <FontAwesomeIcon icon={faUsers} />
-        </p>
+        <Link to="/">
+          <img alt="logo" src={logo} />
+        </Link>
+        <Link to="/dashboard">
+          <p style={{ color: '#0a3c57', fontSize: "30px" }}>
+            <FontAwesomeIcon icon={faHome} />
+          </p>
+        </Link>
+        <Link to="/community">
+          <p style={{ color: '#0a3c57', fontSize: "30px" }}>
+            <FontAwesomeIcon icon={faUsers} />
+          </p>
+        </Link>
       </div>
 
       <div className="main-content">
