@@ -1,6 +1,6 @@
 import React from 'react';
 import './Landing.css';
-
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
@@ -13,8 +13,10 @@ const Navbar = () => {
             <div style={{display: 'flex', alignItems: 'center', marginRight: '20px'}}>
                 <p className='navbar-item'>About</p>
                 <p className='navbar-item'>How It Works</p>
+                <Link to="/login">
                 <button className='navbar-item'>Log In</button>
-            </div>
+                </Link>
+              </div>
         </div>
     </nav>
   );
