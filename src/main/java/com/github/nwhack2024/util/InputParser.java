@@ -1,5 +1,5 @@
 package com.github.nwhack2024.util;
-;
+
 import com.github.nwhack2024.domain.entity.User;
 
 public class InputParser {
