@@ -17,6 +17,26 @@ const Login = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
       };
+    
+    const handleClicked = () => {
+      tryLogin()
+    }
+
+    const tryLogin = () => {
+      fetch('http://localhost:8080/auth/login', {
+        method: "POST",
+        body: JSON.stringify({
+          email: 'john.doe@example.com',
+          password: "1234"
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+          "Origin": "http://localhost:3000"
+        },
+        credentials: "include"
+      }).then(response => response.json())
+        .then(json => {}).catch(error => console.error(error));
+    }
 
     
   return (
@@ -35,7 +55,7 @@ const Login = () => {
                     <br />
                     <input style={{ width: '100%' }} type="password" placeholder="Password" value={password} onChange={handlePasswordChange} />
                     <br />
-                    <button style={{ width: '100%'}} type="submit">Login</button>
+                    <button onClick={handleClicked} style={{ width: '100%'}} type="submit">Login</button>
                 </form>
             </div>
         </div>
