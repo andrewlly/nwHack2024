@@ -15,19 +15,21 @@ public class displayPlant {
     Integer progress;
     String condition;
     Date date;
+    Integer stageNumber;
 
-    String stageName;
-
-    public displayPlant(String name, Integer progress, Date date, String condition){
+    public displayPlant(String name, Date date, String condition){
         this.name = name;
-        this.progress = progress;
         this.date = date;
         this.condition = condition;
     }
 
     public displayPlant(String s, Integer i){
         plantType = s;
-        Integer e = Util.getProgress(i,date);
+        this.progress = Util.getProgress(i,date);
+    }
+
+    public displayPlant(String stageName){
+        stageNumber = Util.getStage(stageName);
     }
 
 
