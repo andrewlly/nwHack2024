@@ -11,6 +11,7 @@ import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -54,6 +55,7 @@ public class UserPlantServiceImpl extends ServiceImpl<UserPlantMapper, UserPlant
         return ans;
     }
 
+    @Override
     public List<PlantTask> getPlantTask(String userName){
         List<PlantTask> ans = new ArrayList<>();
         List<User> users = userMapper.selectByMap(Map.of("email", userName));
@@ -66,6 +68,7 @@ public class UserPlantServiceImpl extends ServiceImpl<UserPlantMapper, UserPlant
                 ans.add(new PlantTask(up,ut,plantCareTask));
             }
         }
+        Collections.sort(ans, (task1, task2) -> task2.getEndDate().compareTo(task1.getEndDate()));
         return ans;
     }
 }
