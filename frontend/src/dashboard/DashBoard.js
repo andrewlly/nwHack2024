@@ -48,6 +48,30 @@ const Dashboard = () => {
     setRecommendedOpen(false);
   }
 
+  const handleToken = () => {
+    getData();
+  }
+
+  const getData = () => {
+    setIsLoading(true);
+    console.log('GETTING DATA');
+    fetch('http://localhost:8080/dashboard', {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+        "Origin": "http://localhost:3000",
+        "Authorization": token
+      },
+      credentials: "include"
+    })
+        .then(response => response.json())
+        .then(json => {
+          setData(json);
+          setIsLoading(false)
+        })
+        .catch(error => console.error(error));
+  }
+
   return (
       <div className="dashboard-container">
         <Modal open={newPlantOpen || recommendedOpen}>
@@ -60,11 +84,15 @@ const Dashboard = () => {
         <div className="sidebar">
           <img alt="logo" src={logo} />
           <p style={{ fontSize: "30px" }}>
-            <FontAwesomeIcon icon={faHome} />
-          </p>
-          <p style={{ fontSize: "30px" }}>
-            <FontAwesomeIcon icon={faUsers} />
-          </p>
+          <FontAwesomeIcon icon={faHome} />
+        </p>
+        <p style={{ fontSize: "30px" }}>
+          <FontAwesomeIcon icon={faUsers} />
+        </p>
+        </div>
+        <h2 className="greeting">Aloe there, <br></br>Jane!</h2>
+        <div className="content-box">
+          <img alt="logo" className="aloe" src={bg} />
         </div>
 
         <div className="main-content">
