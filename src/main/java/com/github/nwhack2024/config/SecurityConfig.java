@@ -1,4 +1,4 @@
-package com.github.nwhack2024.domain.entity;
+package com.github.nwhack2024.config;
 
 import com.github.nwhack2024.security.UserDetailsServiceImpl;
 import com.github.nwhack2024.web.filter.JwtAuthFilter;
@@ -16,7 +16,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-
 
 @Configuration
 @EnableWebSecurity
