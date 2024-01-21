@@ -1,10 +1,11 @@
 
 import PlantReco from './PlantReco';
+import "./Dashboard.css"
 
 const RecoModal = ({openNewPlant}) => {
   return (
     <>
-        <h1>Recommended Plants</h1>
+        <h2>Recommended Plants</h2>
         <PlantReco plantType="Cherry Tomato" openNewPlant={openNewPlant}/>
         <PlantReco plantType="Basil" openNewPlant={openNewPlant}/>
     </>
