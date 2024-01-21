@@ -89,7 +89,7 @@ const Dashboard = () => {
     <div className="dashboard-container">
       <Modal open={newPlantOpen || recommendedOpen}>
         <Box sx={modalStyle}>
-          <div className="plant-count-badge" onClick={() => handleExit()}>
+          <div className="plant-count-badge-exit" onClick={() => handleExit()}>
             X
           </div>
           {newPlantOpen && <NewPlant plantType={modalPlant} />}
@@ -118,7 +118,7 @@ const Dashboard = () => {
           <h3>{formattedDate}</h3>
         </div>
         <h2 className="greeting">
-          Aloe there, <br></br>Jane!
+          Aloe there, <br></br>John!
         </h2>
         <div className="content-box">
           <img alt="logo" className="aloe" src={bg} />

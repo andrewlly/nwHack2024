@@ -46,7 +46,7 @@ const Plant = () => {
     <div className="plant-container" onClick={handleClick}>
       <Modal open={plantInfoOpen}>
         <Box sx={modalStyle}>
-          <div className="plant-count-badge" onClick={() => handleExit()}>
+          <div className="plant-count-badge-exit" onClick={() => handleExit()}>
             X
           </div>
           {plantInfoOpen && <PlantInfo plantType={modalPlant} />}
