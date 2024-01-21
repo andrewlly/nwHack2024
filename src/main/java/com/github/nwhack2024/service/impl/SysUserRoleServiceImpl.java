@@ -6,11 +6,6 @@ import com.github.nwhack2024.service.SysUserRoleService;
 import com.github.nwhack2024.mapper.SysUserRoleMapper;
 import org.springframework.stereotype.Service;
 
-/**
-* @author liuyu
-* @description 针对表【sys_user_role】的数据库操作Service实现
-* @createDate 2024-01-20 16:53:09
-*/
 @Service
 public class SysUserRoleServiceImpl extends ServiceImpl<SysUserRoleMapper, SysUserRole>
     implements SysUserRoleService{
