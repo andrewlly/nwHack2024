@@ -1,21 +1,21 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Landing.css';
-
 
 const Navbar = () => {
   return (
-    <nav>
-        <div style={{display: 'flex', justifyContent: 'space-between'}}>
-            <div style={{display: 'flex', alignItems: 'center'}}>
-                <div style={{ backgroundColor: '#8EC6DD', height: '6vh', width: '6vh', margin: '15px', borderRadius: '100%'}} />
-                <span style={{fontSize: '20px'}}>BestBuds</span>
-            </div>
-            <div style={{display: 'flex', alignItems: 'center', marginRight: '20px'}}>
-                <p className='navbar-item'>About</p>
-                <p className='navbar-item'>How It Works</p>
-                <button className='navbar-item'>Log In</button>
-            </div>
-        </div>
+    <nav className="navbar">
+      <div className="logo-container">
+        <div className="logo-icon"></div>
+        <span className="logo-text">BestBuds</span>
+      </div>
+      <div className="navbar-items-container">
+        <p className="navbar-item">About</p>
+        <p className="navbar-item">How It Works</p>
+        <Link to="/login">
+          <button className="navbar-item login-button">Log In</button>
+        </Link>
+      </div>
     </nav>
   );
 };
