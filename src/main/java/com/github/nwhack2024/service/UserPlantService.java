@@ -10,5 +10,5 @@ import java.util.List;
 
 public interface UserPlantService extends IService<UserPlant> {
     List<DisplayPlant> getPlantsByUserName(String userName);
-    public List<PlantTask> getPlantTask(String userName);
+    List<PlantTask> getPlantTask(String userName);
 }

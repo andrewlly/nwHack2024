@@ -31,7 +31,7 @@ public class UserPlant implements Serializable {
      * 
      */
     @TableField(value = "user_id")
-    private Integer userId;
+    private Long userId;
 
     /**
      * 
