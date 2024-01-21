@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const CreateAccount = () => {
   const [username, setUsername] = useState('');
   const [phoneNumber, setPhoneNumber] = useState(null);
   const [password, setPassword] = useState('');
@@ -22,7 +22,7 @@ const Login = () => {
   };
 
   const handleEmailChange = (e) => {
-    handleEmailChange(e.target.value);
+    setEmail(e.target.value);
   };
 
   const handlePasswordChange = (e) => {
@@ -34,16 +34,18 @@ const Login = () => {
   };
 
   const handleClicked = () => {
-    tryLogin();
+    tryAccountCreate();
   }
 
-  const tryLogin = () => {
+  const tryAccountCreate = () => {
     setIsLoading(true);
     fetch('http://localhost:8080/auth/create', {
       method: "POST",
       body: JSON.stringify({
-        email: login,
+        userName: username,
         password: password,
+        phoneNumber: phoneNumber,
+        email: email
       }),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
@@ -55,12 +57,7 @@ const Login = () => {
     .then(json => {
       console.log(json)
       setIsLoading(false)
-      if (json.msg === 'loginSuccess') {
-        console.log("Login passed");
-        navigate('/dashboard');
-      } else {
-        console.log('Invalid status:', json.status);
-      }
+      navigate('/login');
     })
     .catch(error => console.error(error));
   }
@@ -88,7 +85,7 @@ const Login = () => {
               <br />
               <input style={{ width: '100%' }} type="password" placeholder="Password" value={password} onChange={handlePasswordChange} />
               <br />
-              <button onClick={handleClicked} style={{ width: '100%' }} type="submit">Login</button>
+              <button onClick={handleClicked} style={{ width: '100%' }} type="submit">Create Account</button>
             </form>
           </div>
         </div>
@@ -97,4 +94,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default CreateAccount;
