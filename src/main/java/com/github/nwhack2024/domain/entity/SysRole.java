@@ -1,4 +1,4 @@
-package com.github.nwhack2024.domain;
+package com.github.nwhack2024.domain.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;

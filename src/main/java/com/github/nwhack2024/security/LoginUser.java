@@ -1,5 +1,5 @@
 package com.github.nwhack2024.security;
-import com.github.nwhack2024.domain.User;
+import com.github.nwhack2024.domain.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

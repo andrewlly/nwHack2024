@@ -1,6 +1,6 @@
 package com.github.nwhack2024.service;
 
-import com.github.nwhack2024.domain.Plants;
+import com.github.nwhack2024.domain.entity.Plants;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 

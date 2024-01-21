@@ -1,9 +1,9 @@
 package com.github.nwhack2024.security;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.github.nwhack2024.domain.SysMenu;
-import com.github.nwhack2024.domain.SysRole;
-import com.github.nwhack2024.domain.User;
+import com.github.nwhack2024.domain.entity.SysMenu;
+import com.github.nwhack2024.domain.entity.SysRole;
+import com.github.nwhack2024.domain.entity.User;
 import com.github.nwhack2024.mapper.SysMenuMapper;
 import com.github.nwhack2024.mapper.SysRoleMapper;
 import com.github.nwhack2024.mapper.UserMapper;
