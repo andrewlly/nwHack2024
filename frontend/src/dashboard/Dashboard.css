@@ -69,6 +69,7 @@
 .aloe {
   position: absolute;
   top: 40px;
+  width: 50%;
   z-index: 0;
 }
 
