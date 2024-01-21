@@ -1,10 +1,13 @@
 import React from 'react';
 import './Login.css';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
     const handleLoginChange = (e) => {
         setLogin(e.target.value);
@@ -16,6 +19,8 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        // API call and Authentication
+        navigate('/dashboard');
       };
 
     
@@ -35,7 +40,7 @@ const Login = () => {
                     <br />
                     <input style={{ width: '100%' }} type="password" placeholder="Password" value={password} onChange={handlePasswordChange} />
                     <br />
-                    <button style={{ width: '100%'}} type="submit">Login</button>
+                    <Link to="/dashboard"><button style={{ width: '100%'}} type="submit">Login</button></Link>
                 </form>
             </div>
         </div>

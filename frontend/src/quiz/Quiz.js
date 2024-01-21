@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import './Quiz.css';
+import { useNavigate } from 'react-router-dom';
 
 function Quiz() {
+    const navigate = useNavigate();
     const [query, setQuery] = useState("");
     const [formData, setFormData] = useState({
         plantType: '',
@@ -21,8 +23,16 @@ function Quiz() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
+    // Ideally Query to ChatGPT
     setQuery(`Find me a ${formData.plantType} houseplant to grow based on the following criteria, with 1 being the least and 3 being the most.`
     + " time: " + formData.time + " light: " + formData.sunlight + " space: " + formData.space);
+    // Create user in Database
+    navigate('/dashboard');
+  };
+
+  const handleSkip = (e) => {
+    // Create user in Database
+    navigate('/dashboard');
   };
 
   return (
@@ -79,7 +89,7 @@ function Quiz() {
             </label>
             <div>
                 <input type="submit" value="Find me a plant"/>
-                <input type="button" value="Skip" />
+                <input type="button" value="Skip" onClick={handleSkip}/>
             </div>
         </form>
     </div>
