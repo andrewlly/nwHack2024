@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './Dashboard.css';
 import Task from './Task';
 import Profile from './Profile';
@@ -11,11 +11,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 import { faUsers } from "@fortawesome/free-solid-svg-icons";
 import bg from "../assets/aloe.svg";
-import { useLocation } from 'react-router-dom';
-
 
 const Dashboard = () => {
-  const location = useLocation();
   const currentDate = new Date();
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
   const formattedDate = currentDate.toLocaleDateString('en-US', options);
@@ -38,15 +35,7 @@ const Dashboard = () => {
 
   const [newPlantOpen, setNewPlantOpen] = useState(false);
   const [recommendedOpen, setRecommendedOpen] = useState(true);
-  const [modalPlant, setModalPlant] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const [token, setToken] = useState(location.state.token);
-  const [data, setData] = useState([[]]);
-
-
-  useEffect(() => {
-    handleToken();
-  }, [token, newPlantOpen]);
+  const [modalPlant, setModalPlant] = useState("")
 
   const handleExit = () => {
     setNewPlantOpen(false);
@@ -88,7 +77,7 @@ const Dashboard = () => {
         <Modal open={newPlantOpen || recommendedOpen}>
           <Box sx={modalStyle}>
             <div className="plant-count-badge" onClick={() => handleExit()}>X</div>
-            {newPlantOpen && <NewPlant plantType={modalPlant} token={token}/>}
+            {newPlantOpen && <NewPlant plantType={modalPlant}/>}
             {recommendedOpen && <Recommendation openNewPlant={openNewPlant}/>}
           </Box>
         </Modal>
@@ -105,29 +94,29 @@ const Dashboard = () => {
         <div className="content-box">
           <img alt="logo" className="aloe" src={bg} />
         </div>
-        <div className="taskSection">
-          <h3 style={{ marginTop: "-120px" }} className="tasks">
-            Today's Tasks:
-          </h3>
-          <Task className="task" />
-          <Task className="task" />
-          <Task className="task" />
-          <h3 className="tasks">Tomorrow's Tasks:</h3>
 
         <div className="main-content">
           <div className="header">
             <h2>Dashboard</h2>
             <h3>{formattedDate}</h3>
           </div>
+          <h2 className="greeting">Aloe there, <br></br>Jane!</h2>
           <div className="content-box">
-            <h1 className="greeting">Aloe, Jane!</h1>
+            <img alt="logo" className="aloe" src={bg} />
           </div>
-          <h2 className="greeting">Today's tasks:</h2>
-          <Task className="task" />
-          <Task className="task" />
-          <Task className="task" />
+          <div className="taskSection">
+            <h3 style={{ marginTop: "-120px" }} className="tasks">
+              Today's Tasks:
+            </h3>
+            <Task className="task" />
+            <Task className="task" />
+            <Task className="task" />
+            <h3 className="tasks">Tomorrow's Tasks:</h3>
+            <Task className="task" />
+            <Task className="task" />
+            <Task className="task" />
+          </div>
         </div>
-      </div>
 
         <div className="plants-container">
           <Profile className="profile" />
@@ -136,9 +125,8 @@ const Dashboard = () => {
             <div className="add-plant-button" onClick={() => setNewPlantOpen(true)}>+</div>
           </div>
           <Plant className="plant" />
+          <Plant className="plant" />
         </div>
-        <Plant className="plant" />   
-        <Plant className="plant" />
       </div>
   );
 };

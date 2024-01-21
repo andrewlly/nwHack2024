@@ -68,7 +68,7 @@ public class DashboardController {
         return new ResponseResult<>(200, "data fetched for login", data);
     }
 
-    @PostMapping("/dashboard")
+    @PostMapping("/dashboard/task")
     public ResponseResult checkTask(@RequestBody UserTasks userTasks) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
@@ -87,7 +87,7 @@ public class DashboardController {
         return new ResponseResult<>(200, "checkSuccess");
     }
 
-    @PostMapping("/dashboard")
+    @PostMapping("/dashboard/state")
     public ResponseResult checkState(@RequestBody UserPlant userPlant) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
