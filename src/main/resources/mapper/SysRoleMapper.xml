@@ -16,4 +16,20 @@
         id,role_label,role_name,
         status,del_flag
     </sql>
+
+    <select id="selectRoleByUserID" resultMap="BaseResultMap">
+        Select r.*
+        FROM user u left join sys_user_role ur on u.uid = ur.user_id
+                    left join sys_role r on ur.role_id = r.id
+        Where u.is_deleted = 0 and u.uid = #{id}
+    </select>
+
+
+
+    <select id="selectRoleLabelByUserID" resultType="java.lang.String">
+        Select r.role_label
+        FROM user u left join sys_user_role ur on u.uid = ur.user_id
+                    left join sys_role r on ur.role_id = r.id
+        Where u.is_deleted = 0 and u.uid = #{id}
+    </select>
 </mapper>
