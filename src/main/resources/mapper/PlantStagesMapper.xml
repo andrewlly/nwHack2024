@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.github.nwhack2024.mapper.PlantStagesMapper">
+
+    <resultMap id="BaseResultMap" type="com.github.nwhack2024.domain.PlantStages">
+            <id property="stageID" column="StageID" jdbcType="BIGINT"/>
+            <result property="plantID" column="PlantID" jdbcType="INTEGER"/>
+            <result property="stageName" column="StageName" jdbcType="VARCHAR"/>
+            <result property="stageDescription" column="StageDescription" jdbcType="VARCHAR"/>
+            <result property="stageStartDay" column="StageStartDay" jdbcType="INTEGER"/>
+            <result property="stageEndDay" column="StageEndDay" jdbcType="INTEGER"/>
+            <result property="stageTips" column="StageTips" jdbcType="VARCHAR"/>
+            <result property="stageImageURL" column="StageImageURL" jdbcType="VARCHAR"/>
+            <result property="is_deleted" column="is_deleted" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        StageID,PlantID,StageName,
+        StageDescription,StageStartDay,StageEndDay,
+        StageTips,StageImageURL,is_deleted
+    </sql>
+</mapper>
