@@ -7,6 +7,8 @@ import { faCake } from "@fortawesome/free-solid-svg-icons";
 import { faSeedling } from "@fortawesome/free-solid-svg-icons";
 import { faDroplet } from "@fortawesome/free-solid-svg-icons";
 import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
+import { Modal, Box } from "@mui/material";
+import PlantInfo from "./PlantInfo";
 
 const Plant = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,8 +17,42 @@ const Plant = () => {
     setIsOpen(!isOpen);
   };
 
+  const modalStyle = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 600,
+    bgcolor: "#F8F5EC",
+    border: "2px solid #0A3C5",
+    boxShadow: "0.25rem 0.25rem #0A3C5",
+    borderRadius: "20px",
+    p: 4,
+    textAlign: "left", // Add this line for left justification
+    alignItems: "flex-start", // Align items to the start (top) of the container
+  };
+
+  const [plantInfoOpen, setPlantInfoOpen] = useState(false);
+  const [modalPlant, setModalPlant] = useState("");
+
+  const openPlantInfo = (plantType) => {
+    setModalPlant(plantType);
+    setPlantInfoOpen(true);
+  };
+  const handleExit = () => {
+    setPlantInfoOpen(false);
+  };
+
   return (
     <div className="plant-container" onClick={handleClick}>
+      <Modal open={plantInfoOpen}>
+        <Box sx={modalStyle}>
+          <div className="plant-count-badge" onClick={() => handleExit()}>
+            X
+          </div>
+          {plantInfoOpen && <PlantInfo plantType={modalPlant} />}
+        </Box>
+      </Modal>
       <div className="plant-top">
         <div className="plant-count-badge">2</div>
         <div className="plant-circle">
@@ -48,7 +84,7 @@ const Plant = () => {
             className="learn-more-button"
             style={{ textDecoration: "underline" }}
           >
-            <span className = "space"><FontAwesomeIcon icon={faCircleInfo} /></span> Learn more about this plant!
+            <span className = "space" onClick={() => setPlantInfoOpen(true)}><FontAwesomeIcon  icon={faCircleInfo} /> Learn more about this plant!</span>
           </p>
         </div>
       )}

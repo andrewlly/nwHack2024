@@ -46,7 +46,7 @@ const Login = () => {
       .then((json) => {
         console.log(json);
         if (json.msg == "loginSuccess") {
-          navigate("/dashboard", { state: { token: json.data.token } });
+          navigate("/quiz", { state: { token: json.data.token } });
         }
       })
       .catch((error) => console.error(error));

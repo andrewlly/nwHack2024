@@ -34,9 +34,12 @@ const Dashboard = () => {
   };
 
   const [newPlantOpen, setNewPlantOpen] = useState(false);
-  const [recommendedOpen, setRecommendedOpen] = useState(true);
+  const [recommendedOpen, setRecommendedOpen] = useState(
+    location.state.notSkipped
+  );
   const [isLoading, setIsLoading] = useState(false);
-  const [token, setToken] = useState(location.state.token);
+  const [token, setToken] = useState(location.state.tokenKey);
+
   const [data, setData] = useState([[]]);
 
   const [modalPlant, setModalPlant] = useState("");
