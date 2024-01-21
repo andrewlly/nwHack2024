@@ -9,7 +9,7 @@
   top: -50px;
 }
 
-input {
+.loginField input {
     background-color: #f8f5ec;
     border: none;
     border-bottom: 2px solid #B4E8D0; /* Adjust the border color and width as needed */
