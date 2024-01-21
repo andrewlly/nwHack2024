@@ -21,7 +21,6 @@ public class DashboardController {
 
 
     @GetMapping("/dashboard")
-
     public ResponseResult getDashBoardInfo() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();

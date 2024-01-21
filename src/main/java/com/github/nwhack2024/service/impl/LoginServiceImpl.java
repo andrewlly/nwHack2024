@@ -23,6 +23,7 @@ public class LoginServiceImpl implements LoginService {
 
     @Override
     public ResponseResult login(User user) {
+        System.out.println(user);
         UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(user.getEmail(), user.getPassword());
         Authentication authenticate;
         try{
