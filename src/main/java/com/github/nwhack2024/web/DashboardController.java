@@ -3,7 +3,11 @@ package com.github.nwhack2024.web;
 import com.github.nwhack2024.domain.DisplayPlant;
 import com.github.nwhack2024.domain.PlantTask;
 import com.github.nwhack2024.domain.ResponseResult;
-import com.github.nwhack2024.domain.entity.UserTasks;
+import com.github.nwhack2024.domain.entity.*;
+import com.github.nwhack2024.mapper.PlantStagesMapper;
+import com.github.nwhack2024.mapper.PlantsMapper;
+import com.github.nwhack2024.mapper.UserMapper;
+import com.github.nwhack2024.service.PlantStagesService;
 import com.github.nwhack2024.service.UserPlantService;
 import com.github.nwhack2024.service.UserTasksService;
 import jakarta.annotation.Resource;
@@ -31,12 +35,22 @@ public class DashboardController {
     @Resource
     UserTasksService userTasksS;
 
+    @Resource
+    PlantStagesMapper plantStagesMapper;
+
+    @Resource
+    UserMapper userMapper;
+
+    @Resource
+    PlantsMapper plantsMapper;
+
 
     @GetMapping("/dashboard")
     public ResponseResult getDashBoardInfo() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         String username = userDetails.getUsername();
+        User user = userMapper.selectByMap(Map.of("email", username)).get(0);
         List<DisplayPlant> plantsByUserName;
         List<PlantTask> plantTasks;
         try{
@@ -46,12 +60,15 @@ public class DashboardController {
             return new ResponseResult<>(402, "Info Not exist");
         }
         Map<String, Object> data = new HashMap<>();
+        data.put("full_name", user.getUserName());
+        String[] s = user.getUserName().split(" ");
+        data.put("first_name",s[0]);
         data.put("task",plantTasks);
         data.put("plants",plantsByUserName);
         return new ResponseResult<>(200, "data fetched for login", data);
     }
 
-    @PostMapping("dashboard")
+    @PostMapping("/dashboard")
     public ResponseResult checkTask(@RequestBody UserTasks userTasks) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
@@ -67,6 +84,27 @@ public class DashboardController {
         userTasks.setCreationDate(currentDate);
         userTasks.setUserTasksId(null);
         userTasksS.save(userTasks);
+        return new ResponseResult<>(200, "checkSuccess");
+    }
+
+    @PostMapping("/dashboard")
+    public ResponseResult checkState(@RequestBody UserPlant userPlant) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        String username = userDetails.getUsername();
+        Integer stageId = userPlant.getStageId();
+        PlantStages plantStages = plantStagesMapper.selectById(stageId);
+        if(plantStages == null){
+            plantStagesMapper.deleteById(stageId);
+            return new ResponseResult<>(201, "We have reach the last stage");
+        }
+        Integer stageEndDay = plantStages.getStageEndDay();
+        userPlant.setStageId(stageEndDay);
+        try{
+            userPlantService.saveOrUpdate(userPlant);
+        } catch (Exception e){
+            return new ResponseResult<>(402, "Info Not exist");
+        }
         return new ResponseResult<>(200, "checkSuccess");
     }
 }
