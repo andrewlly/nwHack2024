@@ -21,4 +21,14 @@
         component,visible,status,
         perms,icon,del_flag
     </sql>
+
+    <select id="selectAllByRoleId" resultMap="BaseResultMap">
+        SELECT m.*
+        FROM sys_menu m
+        JOIN sys_role_menu srm ON m.id = srm.menu_id
+        WHERE srm.role_id IN
+        <foreach item="roleId" collection="roleSet" open="(" separator="," close=")">
+            #{roleId}
+        </foreach>
+    </select>
 </mapper>
