@@ -105,14 +105,13 @@
 
   /* Plant container styles */
 .plant-container {
-    height: 15vh;
     width: 100%;
     background-color: white;
     box-shadow: 0.5rem 0.5rem #0A3C57;
     border-radius: 10px;
     flex-direction: row;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     position: relative;
   }
   
@@ -245,9 +244,23 @@
     margin: 0;
     margin-left: 10px;
   }
-  
-  /* Checkbox styles */
-  .task-checkbox {
-    /* Add any additional styles for the checkbox here */
+
+  .health-status {
+    background-color: #B4E8D0;
+    border-radius: 10px;
+    width: fit-content;
+  }
+
+  .upgrade-button {
+    background-color: #B4E8D0;
+    border-radius: 10px;
+    justify-content: flex-start;
+    text-align: center;
+  }
+
+  .learn-more-button {
+    text-decoration: 'underline';
+    justify-content: flex-start;
+    text-align: center;
   }
   
