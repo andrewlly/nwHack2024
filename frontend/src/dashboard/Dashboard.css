@@ -428,3 +428,22 @@
   padding: 50px;
   padding-left: 300px;
 }
+
+.plant-count-badge-exit {
+  font-weight: bold;
+  font-size: 14px !important;
+  background-color: white;
+  width: 2vw;
+  height: 2vw;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 24px;
+  border: 4px solid #0a3c57;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+}
