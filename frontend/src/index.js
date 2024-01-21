@@ -2,12 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import Quiz from './quiz/Quiz'
+import Navbar from './landing/NavBar';
 import reportWebVitals from './reportWebVitals';
+import Landing from './landing/Landing';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Landing />
+    {/* <Quiz /> */}
   </React.StrictMode>
 );
 
