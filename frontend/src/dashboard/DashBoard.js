@@ -1,5 +1,6 @@
 import React from 'react';
 import './Dashboard.css';
+import Task from './Task';
 
 const Dashboard = () => {
     const currentDate = new Date();
@@ -15,15 +16,18 @@ const Dashboard = () => {
             <p>home</p>
             <p>community</p>
         </div>
-        <div style={{width: '55vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', paddingTop: '5vh'}}>
-            <div style={{justifyContent: 'space-between', flexDirection: 'row'}}>
+        <div style={{width: '65vw', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', padding: '5vh'}}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexDirection: 'row', width: '100%'}}>
                 <h2>Dashboard</h2>
                 <h3>{formattedDate}</h3>
             </div>
-            <div style={{height: '20vh', backgroundColor: '#B4E8D0'}}>
-
+            <div style={{height: '30vh', width: '100%', backgroundColor: '#B4E8D0'}}>
+                <h1>Aloe, Jane!</h1>
             </div>
-
+            <h2 style={{ textAlign: 'left', width: '100%'}}>Today's tasks:</h2>
+            <Task />
+            <Task />
+            <Task />
         </div>
     </div>
   );
