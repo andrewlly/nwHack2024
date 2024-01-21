@@ -1,5 +1,6 @@
 package com.github.nwhack2024.util;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
@@ -10,6 +11,12 @@ public class Util {
         if(Objects.equals(s, "Seedling")) return 1;
         if(Objects.equals(s, "Germination")) return 2;
         return 0;
+    }
+    public static Date addDaysToDate(Date startDate, int days) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(startDate);
+        calendar.add(Calendar.DAY_OF_MONTH, days);
+        return calendar.getTime();
     }
 
     public static int getLife(int progress, Date date){
